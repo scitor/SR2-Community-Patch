@@ -144,8 +144,8 @@ bool hasOddityLink(Region@ fromRegion, Region@ toRegion, double minDuration = 0.
 		if(minDuration > 0 && obj.getTimer() < minDuration)
 			continue;
 
-		vec3d dest = obj.getGateDest();
-		if(dest.distanceTo(toRegion.position) < toRegion.radius)
+		Object@ dest = obj.getLink();
+		if(dest.region is toRegion)
 			return true;
 	}
 	return false;
